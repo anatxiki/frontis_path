@@ -20,11 +20,13 @@ export function Kata(props: Props) {
   const stateIcon = () => {
     if (props.state === "Completado") {
       return CompletedIcon;
-    } else if (props.state === "En curso") {
-      return DoingIcon;
-    } else {
-      return PendingIcon;
     }
+
+    if (props.state === "En curso") {
+      return DoingIcon;
+    }
+
+    return PendingIcon;
   };
 
   return (
