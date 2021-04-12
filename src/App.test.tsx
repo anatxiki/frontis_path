@@ -7,3 +7,10 @@ test("muestra el logo de biko", () => {
   const logoBiko = screen.getByRole("img", { name: "Logo de Biko" });
   expect(logoBiko).toBeInTheDocument();
 });
+
+test("muestra el título de los pasos", () => {
+  render(<App />);
+
+  const pathTitle = screen.getByText(/pasos del learning path/i);
+  expect(pathTitle).toBeInTheDocument();
+});
