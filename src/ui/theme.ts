@@ -73,7 +73,7 @@ export const font = {
   },
 };
 
-export const fontFamily = "'Montserrat', sans-serif";
+export const fontFamily = "'Montserrat'";
 
 export const fontWeight = {
   light: 300,
