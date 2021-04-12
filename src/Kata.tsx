@@ -3,7 +3,7 @@ import styled from "styled-components";
 import CompletedIcon from "./completed-icon.svg";
 import PendingIcon from "./pending-icon.svg";
 import DoingIcon from "./doing-icon.svg";
-import { colors, iconSize } from "./ui/theme";
+import { colors, font, iconSize } from "./ui/theme";
 
 const StateIconStyle = styled.img`
   color: ${colors.red};
@@ -11,6 +11,14 @@ const StateIconStyle = styled.img`
   height: ${rem(iconSize.mini)};
 `;
 
+const KataSummary = styled.p`
+  ${font.base()}
+`;
+
+const KataWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 interface Props {
   title?: string;
   pairing?: string;
@@ -30,11 +38,11 @@ export function Kata(props: Props) {
   };
 
   return (
-    <>
-      <p>
+    <KataWrapper>
+      <KataSummary>
         {props.title} - {props.pairing}
-      </p>
+      </KataSummary>
       <StateIconStyle alt="Estado completado" src={stateIcon()} />
-    </>
+    </KataWrapper>
   );
 }
