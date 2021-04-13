@@ -29,7 +29,7 @@ describe("listado de pasos", () => {
     expect(screen.getByText(/go to repo/i)).toBeInTheDocument();
   });
 
-  it("muestra una kata sin descripción", () => {
+  it("si una kata no tiene descripción, informa al usuario", () => {
     // Arrange
 
     // Act
@@ -44,7 +44,7 @@ describe("listado de pasos", () => {
     ).toBeInTheDocument();
   });
 
-  it("muestra una kata sin acompañamiento", () => {
+  it("si una kata no tiene acompañamiento, informa al usuario", () => {
     // Arrange
 
     // Act
@@ -59,7 +59,7 @@ describe("listado de pasos", () => {
     ).toBeInTheDocument();
   });
 
-  it("muestra una kata sin estado", () => {
+  it("si una kata no tiene estado, informa al usuario", () => {
     // Arrange
 
     // Act
@@ -74,7 +74,7 @@ describe("listado de pasos", () => {
     ).toBeInTheDocument();
   });
 
-  it("muestra una kata sin repo", () => {
+  it("si una kata no tiene repositorio, informa al usuario", () => {
     // Arrange
 
     // Act
