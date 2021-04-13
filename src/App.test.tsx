@@ -44,4 +44,26 @@ describe("listado de pasos", () => {
       )
     ).toBeInTheDocument();
   });
+
+  it("muestra una kata sin estado", () => {
+    const myKata = katas[3];
+    render(<App />);
+    const kataSummary = myKata.title + " - " + myKata.pairing;
+    userEvent.click(screen.getByText(kataSummary));
+    expect(
+      screen.getByText(
+        /Falta el estado del paso, ponte en contacto con el tutor para que te de más detalles/i
+      )
+    ).toBeInTheDocument();
+  });
+
+  it("muestra una kata sin repo", () => {
+    const myKata = katas[2];
+    render(<App />);
+    const kataSummary = myKata.title;
+    userEvent.click(screen.getByText(kataSummary));
+    expect(
+      screen.getByText(/Esta kata no tiene un repositorio asociado/i)
+    ).toBeInTheDocument();
+  });
 });

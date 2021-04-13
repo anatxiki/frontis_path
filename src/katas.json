@@ -20,6 +20,13 @@
       "state": "Pendiente",
       "description": "Kata en Coding Dojo",
       "repo": ""
+    },
+    {
+      "title": "Kata Random Quote Machine",
+      "pairing": "En pairing con el tutor",
+      "state": "",
+      "description": "Kata en Coding Dojo",
+      "repo": "https://github.com/marcosrgalvez/random_quote_machine"
     }
   ]
 }

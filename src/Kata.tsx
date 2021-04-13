@@ -41,13 +41,16 @@ export function Kata(props: Props) {
       <KataSummary onClick={displayDetails}>
         {props.title} {props.pairing === "" ? "" : " - " + props.pairing}
       </KataSummary>
-      <StateIconStyle
-        alt={"Estado " + props.state}
-        src={stateIcon(props.state)}
-      />
+      {props.state === "" ? null : (
+        <StateIconStyle
+          alt={"Estado " + props.state}
+          src={stateIcon(props.state)}
+        />
+      )}
       {showKataDetails ? (
         <KataDetails
           pairing={props.pairing}
+          state={props.state}
           description={props.description}
           repo={props.repo}
         />
