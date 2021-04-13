@@ -2,7 +2,6 @@ import LogoBiko from "./logo-biko.svg";
 import { font } from "./ui/theme";
 import styled from "styled-components";
 import { Kata } from "./Kata";
-import { KataDetails } from "./KataDetails";
 import { katas } from "./katas.json";
 
 const H1 = styled.h1`

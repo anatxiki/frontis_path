@@ -1,17 +1,24 @@
 {
   "katas": [
     {
-      "title": "Kata Roman Numerals",
+      "title": "Random Quote Machine",
       "pairing": "En solitario",
       "state": "Completado",
       "description": "Kata en Coding Dojo",
       "repo": "https://github.com/marcosrgalvez/random_quote_machine"
     },
     {
-      "title": "Kata FizzBuzz",
+      "title": "Kata Fizz Buzz",
       "pairing": "En pairing con el tutor",
       "state": "Pendiente",
       "description": "",
+      "repo": ""
+    },
+    {
+      "title": "Kata Roman Numerals",
+      "pairing": "",
+      "state": "Pendiente",
+      "description": "Kata en Coding Dojo",
       "repo": ""
     }
   ]
