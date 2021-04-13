@@ -15,9 +15,10 @@ function App() {
         <img alt="Logo de Biko" src={LogoBiko} />
         <H1>Pasos del learning path</H1>
       </header>
-      {katas.map((element: any) => {
+      {katas.map((element: any, idx: number) => {
         return (
           <Kata
+            key={element.title + "-" + idx}
             title={element.title}
             pairing={element.pairing}
             state={element.state}
