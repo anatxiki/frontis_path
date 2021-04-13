@@ -40,4 +40,7 @@ export function KataDetails(props: Props) {
 
 const KataDetailsWrapper = styled.div`
   padding: ${rem(size.medium)};
+
+  display: flex;
+  flex-direction: column;
 `;

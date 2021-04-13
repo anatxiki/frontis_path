@@ -24,7 +24,7 @@ describe("listado de pasos", () => {
   it("muestra una kata sin descripción", () => {
     const myKata = katas[1];
     render(<App />);
-    const kataSummary = myKata.title + " - " + myKata.pairing;
+    const kataSummary = "Kata " + myKata.title + " - " + myKata.pairing;
     userEvent.click(screen.getByText(kataSummary));
     expect(
       screen.getByText(
@@ -36,7 +36,7 @@ describe("listado de pasos", () => {
   it("muestra una kata sin acompañamiento", () => {
     const myKata = katas[2];
     render(<App />);
-    const kataSummary = myKata.title;
+    const kataSummary = "Kata " + myKata.title;
     userEvent.click(screen.getByText(kataSummary));
     expect(
       screen.getByText(
@@ -48,7 +48,7 @@ describe("listado de pasos", () => {
   it("muestra una kata sin estado", () => {
     const myKata = katas[3];
     render(<App />);
-    const kataSummary = myKata.title + " - " + myKata.pairing;
+    const kataSummary = "Kata " + myKata.title + " - " + myKata.pairing;
     userEvent.click(screen.getByText(kataSummary));
     expect(
       screen.getByText(
@@ -60,7 +60,7 @@ describe("listado de pasos", () => {
   it("muestra una kata sin repo", () => {
     const myKata = katas[2];
     render(<App />);
-    const kataSummary = myKata.title;
+    const kataSummary = "Kata " + myKata.title;
     userEvent.click(screen.getByText(kataSummary));
     expect(
       screen.getByText(/Esta kata no tiene un repositorio asociado/i)
