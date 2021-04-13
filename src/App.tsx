@@ -17,7 +17,7 @@ function App() {
       <Kata
         title="Kata Roman Numerals"
         pairing="En solitario"
-        state="Pendiente"
+        state="Completado"
         description="Kata en Coding Dojo"
         repo="https://github.com/marcosrgalvez/random_quote_machine"
       />

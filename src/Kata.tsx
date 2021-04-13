@@ -6,6 +6,51 @@ import DoingIcon from "./doing-icon.svg";
 import { colors, font, iconSize } from "./ui/theme";
 import { KataDetails } from "./KataDetails";
 import { useState } from "react";
+interface Props {
+  title?: string;
+  pairing?: string;
+  state?: string;
+  description?: string;
+  repo?: string;
+}
+
+const isCompleted = (state?: string) => state === "Completado";
+const isDoing = (state?: string) => state === "En curso";
+
+const stateIcon = (state?: string) => {
+  if (isCompleted(state)) {
+    return CompletedIcon;
+  }
+
+  if (isDoing(state)) {
+    return DoingIcon;
+  }
+
+  return PendingIcon;
+};
+
+export function Kata(props: Props) {
+  const [showKataDetails, setShowKataDetails] = useState(false);
+
+  const displayDetails = () => {
+    setShowKataDetails(!showKataDetails);
+  };
+
+  return (
+    <KataWrapper>
+      <KataSummary onClick={displayDetails}>
+        {props.title} - {props.pairing}
+      </KataSummary>
+      <StateIconStyle
+        alt={"Estado " + props.state}
+        src={stateIcon(props.state)}
+      />
+      {showKataDetails ? (
+        <KataDetails description={props.description} repo={props.repo} />
+      ) : null}
+    </KataWrapper>
+  );
+}
 
 const StateIconStyle = styled.img`
   color: ${colors.red};
@@ -21,42 +66,3 @@ const KataWrapper = styled.div`
   display: flex;
   flex-direction: row;
 `;
-interface Props {
-  title?: string;
-  pairing?: string;
-  state?: string;
-  description?: string;
-  repo?: string;
-}
-
-export function Kata(props: Props) {
-  const stateIcon = () => {
-    if (props.state === "Completado") {
-      return CompletedIcon;
-    }
-
-    if (props.state === "En curso") {
-      return DoingIcon;
-    }
-
-    return PendingIcon;
-  };
-
-  const [showKataDetails, setShowKataDetails] = useState(false);
-
-  const displayDetails = () => {
-    setShowKataDetails(!showKataDetails);
-  };
-
-  return (
-    <KataWrapper>
-      <KataSummary onClick={displayDetails}>
-        {props.title} - {props.pairing}
-      </KataSummary>
-      <StateIconStyle alt="Estado completado" src={stateIcon()} />
-      {showKataDetails ? (
-        <KataDetails description={props.description} repo={props.repo} />
-      ) : null}
-    </KataWrapper>
-  );
-}
