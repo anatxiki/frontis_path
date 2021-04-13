@@ -18,6 +18,8 @@ function App() {
         title="Kata Roman Numerals"
         pairing="En solitario"
         state="Pendiente"
+        description="Kata en Coding Dojo"
+        repo="https://github.com/marcosrgalvez/random_quote_machine"
       />
     </div>
   );

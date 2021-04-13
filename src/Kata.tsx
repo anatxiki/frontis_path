@@ -4,6 +4,8 @@ import CompletedIcon from "./completed-icon.svg";
 import PendingIcon from "./pending-icon.svg";
 import DoingIcon from "./doing-icon.svg";
 import { colors, font, iconSize } from "./ui/theme";
+import { KataDetails } from "./KataDetails";
+import { useState } from "react";
 
 const StateIconStyle = styled.img`
   color: ${colors.red};
@@ -11,7 +13,7 @@ const StateIconStyle = styled.img`
   height: ${rem(iconSize.mini)};
 `;
 
-const KataSummary = styled.p`
+const KataSummary = styled.a`
   ${font.base()}
 `;
 
@@ -23,7 +25,10 @@ interface Props {
   title?: string;
   pairing?: string;
   state?: string;
+  description?: string;
+  repo?: string;
 }
+
 export function Kata(props: Props) {
   const stateIcon = () => {
     if (props.state === "Completado") {
@@ -37,12 +42,21 @@ export function Kata(props: Props) {
     return PendingIcon;
   };
 
+  const [showKataDetails, setShowKataDetails] = useState(false);
+
+  const displayDetails = () => {
+    setShowKataDetails(!showKataDetails);
+  };
+
   return (
     <KataWrapper>
-      <KataSummary>
+      <KataSummary onClick={displayDetails}>
         {props.title} - {props.pairing}
       </KataSummary>
       <StateIconStyle alt="Estado completado" src={stateIcon()} />
+      {showKataDetails ? (
+        <KataDetails description={props.description} repo={props.repo} />
+      ) : null}
     </KataWrapper>
   );
 }
