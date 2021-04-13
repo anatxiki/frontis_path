@@ -11,11 +11,7 @@ describe("listado de pasos", () => {
     render(<App />);
 
     // Assert
-    expect(
-      screen.getByRole("button", {
-        name: /Random Quote Machine - en solitario/i,
-      })
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Fizz Buzz/i)).toBeInTheDocument();
     expect(
       screen.getByRole("img", { name: /estado completado/i })
     ).toBeInTheDocument();
