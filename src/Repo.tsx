@@ -12,14 +12,28 @@ export function Repo(props: Props) {
       {props.repo === "" ? (
         "Esta kata no tiene un repositorio asociado."
       ) : (
-        <LinkToRepo href={props.repo}>GO TO REPO</LinkToRepo>
+        <LinkToRepoWrapper>
+          <LinkToRepo href={props.repo}>GO TO REPO</LinkToRepo>
+          <LinkToRepoDecoration />
+        </LinkToRepoWrapper>
       )}
     </>
   );
 }
 
+const LinkToRepoDecoration = styled.div`
+  width: ${rem(size.medium)};
+
+  border-bottom: ${rem(size.xtiny)} solid ${colors.red};
+
+  &:hover {
+    width: fit-content;
+  }
+`;
+const LinkToRepoWrapper = styled.div``;
+
 const LinkToRepo = styled.a`
-  padding-top: ${rem(size.medium)};
+  width: fit-content;
 
   font-weight: ${fontWeight.bold};
 
