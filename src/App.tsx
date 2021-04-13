@@ -40,7 +40,7 @@ const H1 = styled.h1`
 `;
 
 const Logo = styled.img`
-  max-width: ${rem(200)};
+  max-width: ${rem(150)};
   margin-top: ${rem(size.base)};
 `;
 
