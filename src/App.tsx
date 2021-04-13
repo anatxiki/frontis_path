@@ -2,6 +2,8 @@ import LogoBiko from "./logo-biko.svg";
 import { font } from "./ui/theme";
 import styled from "styled-components";
 import { Kata } from "./Kata";
+import { KataDetails } from "./KataDetails";
+import { katas } from "./katas.json";
 
 const H1 = styled.h1`
   ${font.h1()}
@@ -14,13 +16,17 @@ function App() {
         <img alt="Logo de Biko" src={LogoBiko} />
         <H1>Pasos del learning path</H1>
       </header>
-      <Kata
-        title="Kata Roman Numerals"
-        pairing="En solitario"
-        state="Completado"
-        description="Kata en Coding Dojo"
-        repo="https://github.com/marcosrgalvez/random_quote_machine"
-      />
+      {katas.map((element: any) => {
+        return (
+          <Kata
+            title={element.title}
+            pairing={element.pairing}
+            state={element.state}
+            description={element.description}
+            repo={element.repo}
+          />
+        );
+      })}
     </div>
   );
 }
