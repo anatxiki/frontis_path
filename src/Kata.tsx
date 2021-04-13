@@ -39,8 +39,8 @@ export function Kata(props: Props) {
   return (
     <KataWrapper>
       <KataResume>
-        <KataSummary onClick={displayDetails}>
-          Kata {props.title}
+        <KataSummary role="button" onClick={displayDetails}>
+          Kata <Bold>{props.title}</Bold>
           {props.pairing === "" ? "" : " - " + props.pairing}
         </KataSummary>
         {props.state === "" ? null : (
@@ -64,15 +64,17 @@ export function Kata(props: Props) {
 }
 
 const StateIconStyle = styled.img`
+  background-color: ${colors.white};
+  padding: 0 ${rem(size.tiny)};
   color: ${colors.red};
   width: auto;
   height: ${rem(iconSize.mini)};
 `;
 
 const KataSummary = styled.a`
+  padding-left: ${rem(size.tiny)};
   background-color: ${colors.white};
   ${font.base()}
-  margin-right: ${rem(size.tiny)}
 `;
 
 const Bold = styled.b`
@@ -80,7 +82,7 @@ const Bold = styled.b`
 `;
 
 const KataResume = styled.div`
-  padding-left: ${rem(size.huge)};
+  padding-left: ${rem(size.xlarge + size.base)};
   margin-top: ${rem(-13)};
   align-items: center;
   display: flex;
