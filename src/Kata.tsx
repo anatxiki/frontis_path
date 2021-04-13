@@ -69,7 +69,4 @@ const KataSummary = styled.a`
   ${font.base()}
 `;
 
-const KataWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
+const KataWrapper = styled.div``;

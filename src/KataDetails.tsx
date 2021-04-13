@@ -3,6 +3,8 @@ import { Repo } from "./Repo";
 import { Description } from "./Description";
 import { Warning } from "./Warning";
 import { useEffect, useState } from "react";
+import { size } from "./ui/theme";
+import { rem } from "polished";
 
 interface Props {
   description?: string;
@@ -28,10 +30,14 @@ export function KataDetails(props: Props) {
   }, [props.pairing, props.state]);
 
   return (
-    <>
+    <KataDetailsWrapper>
       <Description description={props.description} />
       <Warning text={warningText} />
       <Repo repo={props.repo} />
-    </>
+    </KataDetailsWrapper>
   );
 }
+
+const KataDetailsWrapper = styled.div`
+  padding: ${rem(size.medium)};
+`;
