@@ -22,11 +22,7 @@ describe("listado de pasos", () => {
 
     // Act
     render(<App />);
-    userEvent.click(
-      screen.getByRole("button", {
-        name: /Random Quote Machine - en solitario/i,
-      })
-    );
+    openKata(/Random Quote Machine - en solitario/i);
 
     // Assert
     expect(screen.getByText(/Kata en Coding Dojo/i)).toBeInTheDocument();
@@ -38,11 +34,7 @@ describe("listado de pasos", () => {
 
     // Act
     render(<App />);
-    userEvent.click(
-      screen.getByRole("button", {
-        name: /Kata Fizz Buzz - En pairing con el tutor/i,
-      })
-    );
+    openKata(/Kata Fizz Buzz - En pairing con el tutor/i);
 
     // Assert
     expect(
@@ -57,11 +49,7 @@ describe("listado de pasos", () => {
 
     // Act
     render(<App />);
-    userEvent.click(
-      screen.getByRole("button", {
-        name: /Kata Roman Numerals/i,
-      })
-    );
+    openKata(/Kata Roman Numerals/i);
 
     //Assert
     expect(
@@ -76,11 +64,7 @@ describe("listado de pasos", () => {
 
     // Act
     render(<App />);
-    userEvent.click(
-      screen.getByRole("button", {
-        name: /Kata Random Quote Machine - En pairing con el tutor/i,
-      })
-    );
+    openKata(/Kata Random Quote Machine - En pairing con el tutor/i);
 
     // Assert
     expect(
@@ -95,11 +79,7 @@ describe("listado de pasos", () => {
 
     // Act
     render(<App />);
-    userEvent.click(
-      screen.getByRole("button", {
-        name: /Kata Roman Numerals/i,
-      })
-    );
+    openKata(/Kata Roman Numerals/i);
 
     //Assert
     expect(
@@ -107,3 +87,11 @@ describe("listado de pasos", () => {
     ).toBeInTheDocument();
   });
 });
+
+function openKata(name: RegExp) {
+  userEvent.click(
+    screen.getByRole("button", {
+      name,
+    })
+  );
+}
