@@ -33,6 +33,7 @@ const WarningWrapper = styled.div`
   margin-bottom: ${rem(size.medium)};
   display: flex;
   flex-direction: row;
+  align-items: center;
 `;
 
 const WarningText = styled.p``;
