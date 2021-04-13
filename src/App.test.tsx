@@ -2,40 +2,53 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 import userEvent from "@testing-library/user-event";
-import { katas } from "./katas.json";
 
 describe("listado de pasos", () => {
-  it("muestra una kata sin detalle", () => {
+  it("muestra una kata", () => {
+    // Arrange
+
+    // Act
     render(<App />);
-    const kataTitle = screen.getByRole("button", {
-      name: /Random Quote Machine - en solitario/i,
-    });
-    const kataState = screen.getByRole("img", { name: /estado completado/i });
-    expect(kataTitle).toBeInTheDocument();
-    expect(kataState).toBeInTheDocument();
+
+    // Assert
+    expect(
+      screen.getByRole("button", {
+        name: /Random Quote Machine - en solitario/i,
+      })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", { name: /estado completado/i })
+    ).toBeInTheDocument();
   });
 
-  it("muestra una kata con detalle", () => {
+  it("muestra el detalle de una kata", () => {
+    // Arrange
+
+    // Act
     render(<App />);
-    expect(screen.queryByText(/Kata en Coding Dojo/i)).not.toBeInTheDocument();
     userEvent.click(
       screen.getByRole("button", {
         name: /Random Quote Machine - en solitario/i,
       })
     );
+
+    // Assert
     expect(screen.getByText(/Kata en Coding Dojo/i)).toBeInTheDocument();
     expect(screen.getByText(/go to repo/i)).toBeInTheDocument();
   });
 
   it("muestra una kata sin descripción", () => {
-    const myKata = katas[1];
+    // Arrange
+
+    // Act
     render(<App />);
-    const kataSummary = "Kata " + myKata.title + " - " + myKata.pairing;
     userEvent.click(
       screen.getByRole("button", {
-        name: kataSummary,
+        name: /Kata Fizz Buzz - En pairing con el tutor/i,
       })
     );
+
+    // Assert
     expect(
       screen.getByText(
         /Falta el enunciado de la kata, ponte en contacto con el tutor para que te de más detalles/i
@@ -44,14 +57,17 @@ describe("listado de pasos", () => {
   });
 
   it("muestra una kata sin acompañamiento", () => {
-    const myKata = katas[2];
+    // Arrange
+
+    // Act
     render(<App />);
-    const kataSummary = "Kata " + myKata.title;
     userEvent.click(
       screen.getByRole("button", {
-        name: kataSummary,
+        name: /Kata Roman Numerals/i,
       })
     );
+
+    //Assert
     expect(
       screen.getByText(
         /Falta el acompañamiento de la kata, ponte en contacto con el tutor para que te de más detalles/i
@@ -60,14 +76,17 @@ describe("listado de pasos", () => {
   });
 
   it("muestra una kata sin estado", () => {
-    const myKata = katas[3];
+    // Arrange
+
+    // Act
     render(<App />);
-    const kataSummary = "Kata " + myKata.title + " - " + myKata.pairing;
     userEvent.click(
       screen.getByRole("button", {
-        name: kataSummary,
+        name: /Kata Random Quote Machine - En pairing con el tutor/i,
       })
     );
+
+    // Assert
     expect(
       screen.getByText(
         /Falta el estado del paso, ponte en contacto con el tutor para que te de más detalles/i
@@ -76,14 +95,17 @@ describe("listado de pasos", () => {
   });
 
   it("muestra una kata sin repo", () => {
-    const myKata = katas[2];
+    // Arrange
+
+    // Act
     render(<App />);
-    const kataSummary = "Kata " + myKata.title;
     userEvent.click(
       screen.getByRole("button", {
-        name: kataSummary,
+        name: /Kata Roman Numerals/i,
       })
     );
+
+    //Assert
     expect(
       screen.getByText(/Esta kata no tiene un repositorio asociado/i)
     ).toBeInTheDocument();
