@@ -15,18 +15,12 @@ export function Repo(props: Props) {
       ) : (
         <LinkToRepoWrapper>
           <LinkToRepo href={props.repo}>GO TO REPO</LinkToRepo>
-          <LinkToRepoDecoration />
         </LinkToRepoWrapper>
       )}
     </>
   );
 }
 
-const LinkToRepoDecoration = styled.div`
-  width: ${rem(size.medium)};
-
-  border-bottom: ${rem(size.xtiny)} solid ${colors.red};
-`;
 const LinkToRepoWrapper = styled.div``;
 
 const LinkToRepo = styled.a`
@@ -40,7 +34,20 @@ const LinkToRepo = styled.a`
   &:visited {
     color: ${colors.black};
   }
+
   &:hover {
     color: ${colors.red};
+  }
+
+  &::after {
+    content: "";
+    width: ${rem(size.base)};
+    display: flex;
+    border-bottom: ${rem(size.xtiny)} solid ${colors.red};
+    transition: all 0.5s ease;
+  }
+
+  &:hover::after {
+    width: ${rem(104)};
   }
 `;
