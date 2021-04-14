@@ -13,27 +13,25 @@ interface Props {
   state?: string;
 }
 
-export function KataDetails(props: Props) {
-  const [warningText, setWarningText] = useState("");
-
-  useEffect(() => {
-    if (props.pairing === "") {
-      setWarningText(
-        "Falta el acompañamiento de la Kata, ponte en contacto con el tutor para que te de más detalles."
-      );
-    }
-    if (props.state === "") {
-      setWarningText(
-        "Falta el estado del paso, ponte en contacto con el tutor para que te de más detalles."
-      );
-    }
-  }, [props.pairing, props.state]);
-
+export function KataDetails({ pairing, state, repo, description }: Props) {
   return (
     <KataDetailsWrapper>
-      <Description description={props.description} />
-      <Warning text={warningText} />
-      <Repo repo={props.repo} />
+      <Description description={description} />
+      {pairing === "" && (
+        <Warning
+          text={
+            "Falta el acompañamiento de la Kata, ponte en contacto con el tutor para que te de más detalles."
+          }
+        />
+      )}
+      {state === "" && (
+        <Warning
+          text={
+            "Falta el estado del paso, ponte en contacto con el tutor para que te de más detalles."
+          }
+        />
+      )}
+      <Repo repo={repo} />
     </KataDetailsWrapper>
   );
 }
