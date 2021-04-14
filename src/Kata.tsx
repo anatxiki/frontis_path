@@ -95,7 +95,7 @@ const KataSummary = styled.a`
   ${font.base()}
 `;
 
-const Bold = styled.b`
+export const Bold = styled.b`
   font-weight: ${fontWeight.bold};
 `;
 

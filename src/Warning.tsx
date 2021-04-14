@@ -18,7 +18,7 @@ export function Warning(props: Props) {
             alt="Símbolo de warning"
             src={WarningSvg}
           ></WarningSymbol>
-          <p>{props.text}</p>
+          <WarningText>{props.text}</WarningText>
         </WarningWrapper>
       )}
     </>
@@ -30,7 +30,10 @@ const WarningSymbol = styled.img`
 `;
 
 const WarningWrapper = styled.div`
-  margin: ${rem(size.medium)} 0;
+  margin-bottom: ${rem(size.medium)};
   display: flex;
   flex-direction: row;
+  align-items: center;
 `;
+
+const WarningText = styled.p``;

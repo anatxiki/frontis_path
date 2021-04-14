@@ -1,6 +1,7 @@
 import { rem } from "polished";
 import styled from "styled-components";
 import { colors, fontWeight, size } from "./ui/theme";
+import { Bold } from "./Kata";
 
 interface Props {
   repo?: string;
@@ -10,16 +11,20 @@ export function Repo(props: Props) {
   return (
     <>
       {props.repo === "" ? (
-        "Esta kata no tiene un repositorio asociado."
+        <Bold>Esta kata no tiene un repositorio asociado.</Bold>
       ) : (
-        <LinkToRepo href={props.repo}>GO TO REPO</LinkToRepo>
+        <LinkToRepoWrapper>
+          <LinkToRepo href={props.repo}>GO TO REPO</LinkToRepo>
+        </LinkToRepoWrapper>
       )}
     </>
   );
 }
 
+const LinkToRepoWrapper = styled.div``;
+
 const LinkToRepo = styled.a`
-  padding-top: ${rem(size.medium)};
+  width: fit-content;
 
   font-weight: ${fontWeight.bold};
 
@@ -29,7 +34,20 @@ const LinkToRepo = styled.a`
   &:visited {
     color: ${colors.black};
   }
+
   &:hover {
     color: ${colors.red};
+  }
+
+  &::after {
+    content: "";
+    width: ${rem(size.base)};
+    display: flex;
+    border-bottom: ${rem(size.xtiny)} solid ${colors.red};
+    transition: all 0.5s ease;
+  }
+
+  &:hover::after {
+    width: ${rem(104)};
   }
 `;

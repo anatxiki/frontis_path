@@ -6,21 +6,6 @@ import { Kata } from "./Kata";
 import { katas } from "./katas.json";
 import { rem } from "polished";
 
-const H1 = styled.h1`
-  ${font.h1()}
-  margin-left: ${rem(-130)};
-`;
-
-const Logo = styled.img`
-  max-width: ${rem(392)};
-`;
-
-const TitleWrapper = styled.div`
-  margin: ${rem(size.medium)} 0;
-  display: flex;
-  align-items: center;
-`;
-
 function App() {
   return (
     <div className="App">
@@ -48,5 +33,21 @@ function App() {
     </div>
   );
 }
+
+const H1 = styled.h1`
+  ${font.h1()}
+  margin-left: ${rem(-130)};
+`;
+
+const Logo = styled.img`
+  max-width: ${rem(150)};
+  margin-top: ${rem(size.base)};
+`;
+
+const TitleWrapper = styled.div`
+  margin: ${rem(size.medium)} 0;
+  display: flex;
+  align-items: center;
+`;
 
 export default App;
