@@ -41,9 +41,9 @@ export function KataStep({ kata }: Props) {
           <KataResume>
             <KataSummary role="button" onClick={displayDetails}>
               Kata <Bold>{kata.title}</Bold>
-              {kata.pairing === "" ? "" : " - " + kata.pairing}
+              {kata.pairing !== "" && " - " + kata.pairing}
             </KataSummary>
-            {kata.state === "" ? null : (
+            {kata.state !== "" && (
               <StateIconStyle
                 alt={"Estado " + kata.state}
                 src={stateIcon(kata.state)}
@@ -57,9 +57,9 @@ export function KataStep({ kata }: Props) {
           <KataResume>
             <KataSummary role="button" onClick={displayDetails}>
               Kata <Bold>{kata.title}</Bold>
-              {kata.pairing === "" ? "" : " - " + kata.pairing}
+              {kata.pairing !== "" && " - " + kata.pairing}
             </KataSummary>
-            {kata.state === "" ? null : (
+            {kata.state !== "" && (
               <StateIconStyle
                 alt={"Estado " + kata.state}
                 src={stateIcon(kata.state)}
