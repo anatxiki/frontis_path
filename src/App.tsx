@@ -9,22 +9,24 @@ import { Kata } from "./domain/models/Kata";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <>
+      <header>
         <Logo alt="Logo de Biko" src={LogoBiko} />
         <TitleWrapper>
-          <img src={RedSquare} alt="Red square" />
+          <img src={RedSquare} alt="Cuadrado rojo decorativo" />
           <H1>Pasos del learning path</H1>
         </TitleWrapper>
       </header>
-      <section>
-        {katas.map((kata: Kata, idx: number) => {
-          return <KataStep key={idx} kata={kata} />;
+      <StepsWrapper>
+        {katas.map((kata: Kata, uniqueKey: number) => {
+          return <KataStep key={uniqueKey} kata={kata} />;
         })}
-      </section>
-    </div>
+      </StepsWrapper>
+    </>
   );
 }
+
+const StepsWrapper = styled.section``;
 
 const H1 = styled.h1`
   ${font.h1()}

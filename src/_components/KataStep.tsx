@@ -56,7 +56,6 @@ export function KataStep({ kata }: Props) {
       ) : (
         <KataWrapper>
           <KataResume>
-            {" "}
             {/* DUPLICADO*/}
             <KataSummary role="button" onClick={displayDetails}>
               Kata <Bold>{kata.title}</Bold>
