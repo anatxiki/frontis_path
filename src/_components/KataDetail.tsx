@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { rem } from "polished";
+
 import { Repo } from "./Repo";
 import { Description } from "./Description";
 import { Warning } from "./Warning";
 import { size } from "../ui/theme";
-import { rem } from "polished";
 import { Kata } from "../domain/models/Kata";
 
 interface Props {
@@ -13,7 +14,7 @@ interface Props {
 export function KataDetail({ kata }: Props) {
   return (
     <KataDetailWrapper>
-      <Description description={kata.description} />
+      <Description text={kata.description} />
       {kata.pairing === "" && (
         <Warning
           text={

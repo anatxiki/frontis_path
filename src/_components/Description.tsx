@@ -4,16 +4,16 @@ import { size } from "../ui/theme";
 import { Warning } from "./Warning";
 
 interface Props {
-  description?: string;
+  text?: string;
 }
 
 export function Description(props: Props) {
   return (
     <>
-      {props.description === "" ? (
+      {props.text === "" ? (
         <Warning text="Falta el enunciado de la Kata, ponte en contacto con el tutor para que te de más detalles." />
       ) : (
-        <DescriptionWrapper>{props.description}</DescriptionWrapper>
+        <DescriptionWrapper>{props.text}</DescriptionWrapper>
       )}
     </>
   );
