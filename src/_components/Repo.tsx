@@ -6,14 +6,14 @@ interface Props {
   repo?: string;
 }
 
-export function Repo(props: Props) {
+export function Repo({ repo }: Props) {
   return (
     <>
-      {props.repo === "" ? (
+      {repo === "" ? (
         <Bold>Esta kata no tiene un repositorio asociado.</Bold>
       ) : (
         <LinkToRepoWrapper>
-          <LinkToRepo href={props.repo}>GO TO REPO</LinkToRepo>
+          <LinkToRepo href={repo}>GO TO REPO</LinkToRepo>
         </LinkToRepoWrapper>
       )}
     </>
