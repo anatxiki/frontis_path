@@ -4,6 +4,7 @@ import styled from "styled-components";
 import CompletedIcon from "../material/completed-icon.svg";
 import PendingIcon from "../material/pending-icon.svg";
 import InProgressIcon from "../material/in-progress-icon.svg";
+
 import { colors, font, iconSize, fontWeight, size } from "../ui/theme";
 import { KataDetail } from "./KataDetail";
 import { useState } from "react";
@@ -77,7 +78,6 @@ export function KataStep({ kata }: Props) {
 
 const StepState = styled.img`
   background-color: ${colors.white};
-  z-index: 1000;
   padding: 0 ${rem(size.tiny)};
   color: ${colors.red};
   width: auto;
@@ -87,7 +87,6 @@ const StepState = styled.img`
 const KataSummary = styled.a`
   padding-left: ${rem(size.tiny)};
   background-color: ${colors.white};
-  z-index: 1000;
   ${font.base()}
 `;
 
@@ -122,6 +121,7 @@ const StepDetailDisplayedWrapper = styled.div`
   margin-bottom: ${rem(size.medium)};
   position: relative;
   &:before {
+    z-index: -1;
     content: "";
     position: absolute;
     top: 0.5rem;
@@ -160,6 +160,7 @@ const StepDetailDisplayedWrapper = styled.div`
     }
   }
   &:after {
+    z-index: -1;
     content: "";
     position: absolute;
     top: 0.5rem;

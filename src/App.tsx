@@ -2,8 +2,8 @@ import LogoBiko from "./material/logo-biko.svg";
 import RedSquare from "./material/red-square.svg";
 import { font, size } from "./ui/theme";
 import styled from "styled-components";
-import { KataStep } from "./_components/KataStep";
-import { katas } from "./fixtures/katas.json";
+import { KataStep } from "./KataStep";
+import { katas } from "./data/katas.json";
 import { rem } from "polished";
 import { Kata } from "./domain/models/Kata";
 
@@ -17,16 +17,15 @@ function App() {
           <H1>Pasos del learning path</H1>
         </TitleWrapper>
       </header>
-      <StepsWrapper>
-        {katas.map((kata: Kata, uniqueKey: number) => {
-          return <KataStep key={uniqueKey} kata={kata} />;
+
+      <section>
+        {katas.map((kata: Kata) => {
+          return <KataStep kata={kata} key={kata.id} />;
         })}
-      </StepsWrapper>
+      </section>
     </>
   );
 }
-
-const StepsWrapper = styled.section``;
 
 const H1 = styled.h1`
   ${font.h1()}

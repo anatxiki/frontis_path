@@ -1,6 +1,7 @@
 {
   "katas": [
     {
+      "id": "1",
       "title": "Random Quote Machine",
       "pairing": "En solitario",
       "state": "Completado",
@@ -8,6 +9,7 @@
       "repo": "https://github.com/marcosrgalvez/random_quote_machine"
     },
     {
+      "id": "2",
       "title": "Fizz Buzz",
       "pairing": "En pairing con el tutor",
       "state": "Pendiente",
@@ -15,6 +17,7 @@
       "repo": ""
     },
     {
+      "id": "3",
       "title": "Roman Numerals",
       "pairing": "",
       "state": "Pendiente",
@@ -22,6 +25,7 @@
       "repo": ""
     },
     {
+      "id": "4",
       "title": "Random Quote Machine",
       "pairing": "En pairing con el tutor",
       "state": "",

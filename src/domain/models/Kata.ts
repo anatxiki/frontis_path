@@ -1,4 +1,5 @@
 export interface Kata {
+  id: string;
   title?: string;
   pairing?: string;
   state?: string;
