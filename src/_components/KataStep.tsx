@@ -50,12 +50,7 @@ export function KataStep({ kata }: Props) {
               />
             )}
           </KataResume>
-          <KataDetail
-            pairing={kata.pairing}
-            state={kata.state}
-            repo={kata.repo}
-            description={kata.description}
-          />
+          <KataDetail kata={kata} />
         </KataDisplayedWrapper>
       ) : (
         <KataWrapper>

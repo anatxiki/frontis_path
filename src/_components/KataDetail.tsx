@@ -4,33 +4,31 @@ import { Description } from "./Description";
 import { Warning } from "./Warning";
 import { size } from "../ui/theme";
 import { rem } from "polished";
+import { Kata } from "../domain/models/Kata";
 
 interface Props {
-  description?: string;
-  repo?: string;
-  pairing?: string;
-  state?: string;
+  kata: Kata;
 }
 
-export function KataDetail({ pairing, state, repo, description }: Props) {
+export function KataDetail({ kata }: Props) {
   return (
     <KataDetailWrapper>
-      <Description description={description} />
-      {pairing === "" && (
+      <Description description={kata.description} />
+      {kata.pairing === "" && (
         <Warning
           text={
             "Falta el acompañamiento de la Kata, ponte en contacto con el tutor para que te de más detalles."
           }
         />
       )}
-      {state === "" && (
+      {kata.state === "" && (
         <Warning
           text={
             "Falta el estado del paso, ponte en contacto con el tutor para que te de más detalles."
           }
         />
       )}
-      <Repo repo={repo} />
+      <Repo repo={kata.repo} />
     </KataDetailWrapper>
   );
 }

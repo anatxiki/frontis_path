@@ -3,8 +3,9 @@ import RedSquare from "./material/red-square.svg";
 import { font, size } from "./ui/theme";
 import styled from "styled-components";
 import { KataStep } from "./_components/KataStep";
-import { katas } from "./katas.json";
+import { katas } from "./material/katas.json";
 import { rem } from "polished";
+import { Kata } from "./domain/models/Kata";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         </TitleWrapper>
       </header>
       <section>
-        {katas.map((kata: any, idx: number) => {
+        {katas.map((kata: Kata, idx: number) => {
           return <KataStep key={idx} kata={kata} />;
         })}
       </section>
