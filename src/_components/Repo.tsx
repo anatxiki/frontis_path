@@ -1,6 +1,6 @@
 import { rem } from "polished";
 import styled from "styled-components";
-import { colors, fontWeight, size } from "./ui/theme";
+import { colors, fontWeight, size } from "../ui/theme";
 import { Bold } from "./Kata";
 
 interface Props {

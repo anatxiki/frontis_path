@@ -1,9 +1,9 @@
 import { rem } from "polished";
 import styled from "styled-components";
-import CompletedIcon from "./completed-icon.svg";
-import PendingIcon from "./pending-icon.svg";
-import DoingIcon from "./doing-icon.svg";
-import { colors, font, iconSize, fontWeight, size } from "./ui/theme";
+import CompletedIcon from "../material/completed-icon.svg";
+import PendingIcon from "../material/pending-icon.svg";
+import DoingIcon from "../material/doing-icon.svg";
+import { colors, font, iconSize, fontWeight, size } from "../ui/theme";
 import { KataDetail } from "./KataDetail";
 import { useState } from "react";
 interface Props {

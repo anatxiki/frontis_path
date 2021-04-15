@@ -1,8 +1,8 @@
-import LogoBiko from "./logo-biko.svg";
-import RedSquare from "./red-square.svg";
+import LogoBiko from "./material/logo-biko.svg";
+import RedSquare from "./material/red-square.svg";
 import { font, size } from "./ui/theme";
 import styled from "styled-components";
-import { Kata } from "./Kata";
+import { Kata } from "./_components/Kata";
 import { katas } from "./katas.json";
 import { rem } from "polished";
 

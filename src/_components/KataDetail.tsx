@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Repo } from "./Repo";
 import { Description } from "./Description";
 import { Warning } from "./Warning";
-import { size } from "./ui/theme";
+import { size } from "../ui/theme";
 import { rem } from "polished";
 
 interface Props {
