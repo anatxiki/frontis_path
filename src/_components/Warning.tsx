@@ -7,25 +7,20 @@ interface Props {
   text: string;
 }
 
-export function Warning(props: Props) {
+export function Warning({ text }: Props) {
   return (
     <>
-      {props.text === "" ? (
-        ""
-      ) : (
+      {text !== "" && (
         <WarningWrapper>
-          <WarningSymbol
-            alt="Símbolo de warning"
-            src={WarningSvg}
-          ></WarningSymbol>
-          <WarningText>{props.text}</WarningText>
+          <WarningIcon alt="Símbolo de warning" src={WarningSvg} />
+          <WarningText>{text}</WarningText>
         </WarningWrapper>
       )}
     </>
   );
 }
 
-const WarningSymbol = styled.img`
+const WarningIcon = styled.img`
   margin-right: ${rem(size.tiny)};
 `;
 
