@@ -1,5 +1,6 @@
 import { rem } from "polished";
 import styled from "styled-components";
+
 import CompletedIcon from "../material/completed-icon.svg";
 import PendingIcon from "../material/pending-icon.svg";
 import DoingIcon from "../material/doing-icon.svg";
@@ -15,7 +16,7 @@ interface Props {
 const isCompleted = (state?: string) => state === "Completado";
 const isDoing = (state?: string) => state === "En curso";
 
-const stateIcon = (state?: string) => {
+const stepState = (state?: string) => {
   if (isCompleted(state)) {
     return CompletedIcon;
   }
@@ -30,51 +31,51 @@ const stateIcon = (state?: string) => {
 export function KataStep({ kata }: Props) {
   const [showKataDetail, setShowKataDetail] = useState(false);
 
-  const displayDetails = () => {
+  const displayDetail = () => {
     setShowKataDetail(!showKataDetail);
   };
 
   return (
     <>
       {showKataDetail ? (
-        <KataDisplayedWrapper>
-          <KataResume>
+        <StepDetailDisplayedWrapper>
+          <StepTitle>
             {/* DUPLICADO */}
-            <KataSummary role="button" onClick={displayDetails}>
+            <KataSummary role="button" onClick={displayDetail}>
               Kata <Bold>{kata.title}</Bold>
               {kata.pairing !== "" && " - " + kata.pairing}
             </KataSummary>
             {kata.state !== "" && (
-              <StateIconStyle
+              <StepState
                 alt={"Estado " + kata.state}
-                src={stateIcon(kata.state)}
+                src={stepState(kata.state)}
               />
             )}
-          </KataResume>
+          </StepTitle>
           <KataDetail kata={kata} />
-        </KataDisplayedWrapper>
+        </StepDetailDisplayedWrapper>
       ) : (
-        <KataWrapper>
-          <KataResume>
+        <StepWrapper>
+          <StepTitle>
             {/* DUPLICADO*/}
-            <KataSummary role="button" onClick={displayDetails}>
+            <KataSummary role="button" onClick={displayDetail}>
               Kata <Bold>{kata.title}</Bold>
               {kata.pairing !== "" && " - " + kata.pairing}
             </KataSummary>
             {kata.state !== "" && (
-              <StateIconStyle
+              <StepState
                 alt={"Estado " + kata.state}
-                src={stateIcon(kata.state)}
+                src={stepState(kata.state)}
               />
             )}
-          </KataResume>
-        </KataWrapper>
+          </StepTitle>
+        </StepWrapper>
       )}
     </>
   );
 }
 
-const StateIconStyle = styled.img`
+const StepState = styled.img`
   background-color: ${colors.white};
   z-index: 1000;
   padding: 0 ${rem(size.tiny)};
@@ -90,11 +91,12 @@ const KataSummary = styled.a`
   ${font.base()}
 `;
 
-export const Bold = styled.b`
+// DUPLICADO
+const Bold = styled.b`
   font-weight: ${fontWeight.bold};
 `;
 
-const KataResume = styled.div`
+const StepTitle = styled.div`
   padding-left: ${rem(size.xlarge + size.base)};
   margin-top: ${rem(-13)};
   align-items: center;
@@ -102,7 +104,7 @@ const KataResume = styled.div`
   cursor: pointer;
 `;
 
-const KataWrapper = styled.div`
+const StepWrapper = styled.div`
   margin-bottom: ${rem(size.base)};
   position: relative;
 
@@ -116,7 +118,7 @@ const KataWrapper = styled.div`
   }
 `;
 
-const KataDisplayedWrapper = styled.div`
+const StepDetailDisplayedWrapper = styled.div`
   margin-bottom: ${rem(size.medium)};
   position: relative;
   &:before {

@@ -51,6 +51,7 @@ const LinkToRepo = styled.a`
   }
 `;
 
-export const Bold = styled.b`
+//DUPLICADO
+const Bold = styled.b`
   font-weight: ${fontWeight.bold};
 `;
