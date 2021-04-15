@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { KataStep } from "./_components/KataStep";
 import { katas } from "./katas.json";
 import { rem } from "polished";
-import { Kata } from "./domain/models/Kata";
 
 function App() {
   return (
@@ -18,8 +17,8 @@ function App() {
         </TitleWrapper>
       </header>
       <section>
-        {katas.map((kata: any) => {
-          return <KataStep kata={kata} />;
+        {katas.map((kata: any, idx: number) => {
+          return <KataStep key={idx} kata={kata} />;
         })}
       </section>
     </div>

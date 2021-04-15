@@ -53,8 +53,8 @@ export function KataStep({ kata }: Props) {
           <KataDetail
             pairing={kata.pairing}
             state={kata.state}
-            description={kata.description}
             repo={kata.repo}
+            description={kata.description}
           />
         </KataDisplayedWrapper>
       ) : (
