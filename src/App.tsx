@@ -3,7 +3,7 @@ import RedSquare from "./material/red-square.svg";
 import { font, size } from "./ui/theme";
 import styled from "styled-components";
 import { KataStep } from "./_components/KataStep";
-import { katas } from "./material/katas.json";
+import { katas } from "./fixtures/katas.json";
 import { rem } from "polished";
 import { Kata } from "./domain/models/Kata";
 

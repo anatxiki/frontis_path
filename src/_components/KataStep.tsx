@@ -39,6 +39,7 @@ export function KataStep({ kata }: Props) {
       {showKataDetail ? (
         <KataDisplayedWrapper>
           <KataResume>
+            {/* DUPLICADO */}
             <KataSummary role="button" onClick={displayDetails}>
               Kata <Bold>{kata.title}</Bold>
               {kata.pairing !== "" && " - " + kata.pairing}
@@ -55,6 +56,8 @@ export function KataStep({ kata }: Props) {
       ) : (
         <KataWrapper>
           <KataResume>
+            {" "}
+            {/* DUPLICADO*/}
             <KataSummary role="button" onClick={displayDetails}>
               Kata <Bold>{kata.title}</Bold>
               {kata.pairing !== "" && " - " + kata.pairing}
