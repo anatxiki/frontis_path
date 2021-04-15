@@ -4,7 +4,7 @@ import CompletedIcon from "./completed-icon.svg";
 import PendingIcon from "./pending-icon.svg";
 import DoingIcon from "./doing-icon.svg";
 import { colors, font, iconSize, fontWeight, size } from "./ui/theme";
-import { KataDetails } from "./KataDetails";
+import { KataDetail } from "./KataDetail";
 import { useState } from "react";
 interface Props {
   title?: string;
@@ -30,15 +30,15 @@ const stateIcon = (state?: string) => {
 };
 
 export function Kata(props: Props) {
-  const [showKataDetails, setShowKataDetails] = useState(false);
+  const [showKataDetail, setShowKataDetail] = useState(false);
 
   const displayDetails = () => {
-    setShowKataDetails(!showKataDetails);
+    setShowKataDetail(!showKataDetail);
   };
 
   return (
     <>
-      {showKataDetails ? (
+      {showKataDetail ? (
         <KataWrapperWithBorder>
           <KataResume>
             <KataSummary role="button" onClick={displayDetails}>
@@ -52,7 +52,7 @@ export function Kata(props: Props) {
               />
             )}
           </KataResume>
-          <KataDetails
+          <KataDetail
             pairing={props.pairing}
             state={props.state}
             description={props.description}
