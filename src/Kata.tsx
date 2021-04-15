@@ -122,7 +122,7 @@ const KataWrapper = styled.div`
 `;
 
 const KataWrapperWithBorder = styled.div`
-  margin-bottom: ${rem(size.base)};
+  margin-bottom: ${rem(size.medium)};
   position: relative;
   &:before {
     content: "";
