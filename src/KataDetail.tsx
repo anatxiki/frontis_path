@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Repo } from "./Repo";
 import { Description } from "./Description";
 import { Warning } from "./Warning";
-import { useEffect, useState } from "react";
 import { size } from "./ui/theme";
 import { rem } from "polished";
 
@@ -13,9 +12,9 @@ interface Props {
   state?: string;
 }
 
-export function KataDetails({ pairing, state, repo, description }: Props) {
+export function KataDetail({ pairing, state, repo, description }: Props) {
   return (
-    <KataDetailsWrapper>
+    <KataDetailWrapper>
       <Description description={description} />
       {pairing === "" && (
         <Warning
@@ -32,11 +31,11 @@ export function KataDetails({ pairing, state, repo, description }: Props) {
         />
       )}
       <Repo repo={repo} />
-    </KataDetailsWrapper>
+    </KataDetailWrapper>
   );
 }
 
-const KataDetailsWrapper = styled.div`
+const KataDetailWrapper = styled.div`
   padding: ${rem(size.medium)};
 
   display: flex;
