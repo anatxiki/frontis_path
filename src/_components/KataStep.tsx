@@ -6,12 +6,10 @@ import DoingIcon from "../material/doing-icon.svg";
 import { colors, font, iconSize, fontWeight, size } from "../ui/theme";
 import { KataDetail } from "./KataDetail";
 import { useState } from "react";
+import { Kata } from "../domain/models/Kata";
+
 interface Props {
-  title?: string;
-  pairing?: string;
-  state?: string;
-  description?: string;
-  repo?: string;
+  kata: Kata;
 }
 
 const isCompleted = (state?: string) => state === "Completado";
@@ -29,7 +27,7 @@ const stateIcon = (state?: string) => {
   return PendingIcon;
 };
 
-export function Kata(props: Props) {
+export function KataStep({ kata }: Props) {
   const [showKataDetail, setShowKataDetail] = useState(false);
 
   const displayDetails = () => {
@@ -39,37 +37,37 @@ export function Kata(props: Props) {
   return (
     <>
       {showKataDetail ? (
-        <KataWrapperWithBorder>
+        <KataDisplayedWrapper>
           <KataResume>
             <KataSummary role="button" onClick={displayDetails}>
-              Kata <Bold>{props.title}</Bold>
-              {props.pairing === "" ? "" : " - " + props.pairing}
+              Kata <Bold>{kata.title}</Bold>
+              {kata.pairing === "" ? "" : " - " + kata.pairing}
             </KataSummary>
-            {props.state === "" ? null : (
+            {kata.state === "" ? null : (
               <StateIconStyle
-                alt={"Estado " + props.state}
-                src={stateIcon(props.state)}
+                alt={"Estado " + kata.state}
+                src={stateIcon(kata.state)}
               />
             )}
           </KataResume>
           <KataDetail
-            pairing={props.pairing}
-            state={props.state}
-            description={props.description}
-            repo={props.repo}
+            pairing={kata.pairing}
+            state={kata.state}
+            description={kata.description}
+            repo={kata.repo}
           />
-        </KataWrapperWithBorder>
+        </KataDisplayedWrapper>
       ) : (
         <KataWrapper>
           <KataResume>
             <KataSummary role="button" onClick={displayDetails}>
-              Kata <Bold>{props.title}</Bold>
-              {props.pairing === "" ? "" : " - " + props.pairing}
+              Kata <Bold>{kata.title}</Bold>
+              {kata.pairing === "" ? "" : " - " + kata.pairing}
             </KataSummary>
-            {props.state === "" ? null : (
+            {kata.state === "" ? null : (
               <StateIconStyle
-                alt={"Estado " + props.state}
-                src={stateIcon(props.state)}
+                alt={"Estado " + kata.state}
+                src={stateIcon(kata.state)}
               />
             )}
           </KataResume>
@@ -121,7 +119,7 @@ const KataWrapper = styled.div`
   }
 `;
 
-const KataWrapperWithBorder = styled.div`
+const KataDisplayedWrapper = styled.div`
   margin-bottom: ${rem(size.medium)};
   position: relative;
   &:before {

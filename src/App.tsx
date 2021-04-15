@@ -2,9 +2,10 @@ import LogoBiko from "./material/logo-biko.svg";
 import RedSquare from "./material/red-square.svg";
 import { font, size } from "./ui/theme";
 import styled from "styled-components";
-import { Kata } from "./_components/Kata";
+import { KataStep } from "./_components/KataStep";
 import { katas } from "./katas.json";
 import { rem } from "polished";
+import { Kata } from "./domain/models/Kata";
 
 function App() {
   return (
@@ -17,17 +18,8 @@ function App() {
         </TitleWrapper>
       </header>
       <section>
-        {katas.map((element: any, idx: number) => {
-          return (
-            <Kata
-              key={element.title + "-" + idx}
-              title={element.title}
-              pairing={element.pairing}
-              state={element.state}
-              description={element.description}
-              repo={element.repo}
-            />
-          );
+        {katas.map((kata: any) => {
+          return <KataStep kata={kata} />;
         })}
       </section>
     </div>

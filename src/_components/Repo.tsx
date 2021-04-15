@@ -1,7 +1,6 @@
 import { rem } from "polished";
 import styled from "styled-components";
 import { colors, fontWeight, size } from "../ui/theme";
-import { Bold } from "./Kata";
 
 interface Props {
   repo?: string;
@@ -50,4 +49,8 @@ const LinkToRepo = styled.a`
   &:hover::after {
     width: ${rem(104)};
   }
+`;
+
+export const Bold = styled.b`
+  font-weight: ${fontWeight.bold};
 `;
