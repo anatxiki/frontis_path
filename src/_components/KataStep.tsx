@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import CompletedIcon from "../material/completed-icon.svg";
 import PendingIcon from "../material/pending-icon.svg";
-import DoingIcon from "../material/doing-icon.svg";
+import InProgressIcon from "../material/in-progress-icon.svg";
 import { colors, font, iconSize, fontWeight, size } from "../ui/theme";
 import { KataDetail } from "./KataDetail";
 import { useState } from "react";
@@ -14,15 +14,15 @@ interface Props {
 }
 
 const isCompleted = (state?: string) => state === "Completado";
-const isDoing = (state?: string) => state === "En curso";
+const isInProgress = (state?: string) => state === "En curso";
 
 const stepState = (state?: string) => {
   if (isCompleted(state)) {
     return CompletedIcon;
   }
 
-  if (isDoing(state)) {
-    return DoingIcon;
+  if (isInProgress(state)) {
+    return InProgressIcon;
   }
 
   return PendingIcon;
