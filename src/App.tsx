@@ -1,4 +1,4 @@
-import LogoBiko from "./material/logo-biko.svg";
+//import LogoBiko from "./material/logo-biko.svg";
 import RedSquare from "./material/red-square.svg";
 import { font, size } from "./ui/theme";
 import styled from "styled-components";
@@ -32,10 +32,10 @@ const H1 = styled.h1`
   margin-left: ${rem(-130)};
 `;
 
-const Logo = styled.img`
+/*const Logo = styled.img`
   max-width: ${rem(150)};
   margin-top: ${rem(size.base)};
-`;
+`;*/
 
 const TitleWrapper = styled.div`
   margin: ${rem(size.medium)} 0;
