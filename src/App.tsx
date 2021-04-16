@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <header>
-        <Logo alt="Logo de Biko" src={LogoBiko} />
+        {/*<Logo alt="Logo de Biko" src={LogoBiko} />*/}
         <TitleWrapper>
           <img src={RedSquare} alt="Cuadrado rojo decorativo" />
           <H1>Pasos del learning path</H1>
