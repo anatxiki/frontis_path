@@ -1,4 +1,4 @@
-import LogoBiko from "./material/logo-biko.svg";
+//import LogoBiko from "./material/logo-biko.svg";
 import RedSquare from "./material/red-square.svg";
 import { font, size } from "./ui/theme";
 import styled from "styled-components";
