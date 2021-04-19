@@ -1,23 +1,7 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Steps } from "./Steps";
 
 function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/">
-          <Home />
-        </Route>
-        <Route path="/steps">
-          <Steps />
-        </Route>
-      </Switch>
-    </Router>
-  );
-}
-
-function Home() {
   const [userInput, setUserInput] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -27,7 +11,6 @@ function Home() {
     }
     return isAuthenticated;
   };
-
   return (
     <>
       {!isAuthenticated ? (
