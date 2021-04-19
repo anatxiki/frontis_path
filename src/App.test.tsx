@@ -21,6 +21,15 @@ describe("autenticacion", () => {
 
     expect(screen.getByText(/Pasos del learning path/i)).toBeInTheDocument();
   });
+
+  it("al introducir la contraseña incorrecta, muestra una advertencia", () => {
+    render(<App />);
+
+    userEvent.type(screen.getByLabelText(/password/i), "1234");
+    userEvent.click(screen.getByRole("button", { name: /enviar/i }));
+
+    expect(screen.getByText(/Contraseña incorrecta/i)).toBeInTheDocument();
+  });
 });
 
 describe("listado de pasos", () => {

@@ -31,4 +31,8 @@ const WarningWrapper = styled.div`
   align-items: center;
 `;
 
-const WarningText = styled.p``;
+const WarningText = styled.p`
+  display: flex;
+  align-items: center;
+  height: ${rem(24)};
+`;

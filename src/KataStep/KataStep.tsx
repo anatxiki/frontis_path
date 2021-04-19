@@ -113,7 +113,7 @@ const StepWrapper = styled.div`
     top: 0.5rem;
     left: 3.5rem;
     border-top: ${rem(3)} solid ${colors.red};
-    width: 3%;
+    width: ${rem(35)};
   }
 `;
 

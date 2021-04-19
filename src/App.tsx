@@ -7,16 +7,21 @@ import { Md5 } from "ts-md5/dist/md5";
 import { colors, font, fontWeight, size } from "./ui/theme";
 import RedSquare from "./material/red-square.svg";
 import Arrows from "./material/arrow.svg";
+import { Warning } from "./KataStep/Warning";
 import { rem } from "polished";
 
 function App() {
   const [userInput, setUserInput] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [incorrectPassword, setIncorrectPassword] = useState(false);
 
   const checkPassword = () => {
     if (Md5.hashStr(userInput) === frontisPassword) {
       setIsAuthenticated(true);
     }
+
+    !isAuthenticated && setIncorrectPassword(true);
+
     return isAuthenticated;
   };
   return (
@@ -33,8 +38,12 @@ function App() {
           <PasswordInput
             type="password"
             aria-label="password"
+            className={
+              !incorrectPassword ? "correctPassword" : "incorrectPassword"
+            }
             value={userInput}
             onChange={(event) => {
+              setIncorrectPassword(false);
               setUserInput(event.target.value);
             }}
           />
@@ -45,6 +54,13 @@ function App() {
               alt="Icono del botón enviar"
             />
           </SendButton>
+          {incorrectPassword && (
+            <Warning
+              text={
+                "Contraseña incorrecta. Por favor introduzca la contraseña nuevamente."
+              }
+            />
+          )}
         </AuthPageWrapper>
       ) : (
         <Steps />
@@ -55,6 +71,8 @@ function App() {
 
 const SendButton = styled.button`
   position: relative;
+
+  margin-bottom: ${rem(size.medium)};
 `;
 
 const AuthPageWrapper = styled.div`
@@ -77,6 +95,14 @@ const PasswordInput = styled.input`
 
   &:focus {
     outline: none;
+  }
+
+  &.incorrectPassword {
+    border: 3px solid ${colors.red};
+  }
+
+  &.correctPassword {
+    border: 3px solid ${colors.lightGrey};
   }
 `;
 
