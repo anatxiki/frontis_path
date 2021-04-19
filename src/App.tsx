@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Steps } from "./Steps";
+import { frontisPassword } from "./superSecretPassword";
+import { Md5 } from "ts-md5/dist/md5";
 
 function App() {
   const [userInput, setUserInput] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const checkPassword = () => {
-    if (userInput === "B1k0M4nd4&n0TuB4nd4") {
+    if (Md5.hashStr(userInput) === frontisPassword) {
       setIsAuthenticated(true);
     }
     return isAuthenticated;
