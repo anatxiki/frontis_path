@@ -1,7 +1,7 @@
 import { rem } from "polished";
 import styled from "styled-components";
 
-import { size } from "../ui/theme";
+import { size } from "../../../ui/theme";
 import { Warning } from "./Warning";
 
 interface Props {

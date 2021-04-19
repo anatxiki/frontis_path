@@ -1,14 +1,14 @@
 import { rem } from "polished";
 import styled from "styled-components";
 
-import CompletedIcon from "../material/completed-icon.svg";
-import PendingIcon from "../material/pending-icon.svg";
-import InProgressIcon from "../material/in-progress-icon.svg";
+import CompletedIcon from "../../../material/completed-icon.svg";
+import PendingIcon from "../../../material/pending-icon.svg";
+import InProgressIcon from "../../../material/in-progress-icon.svg";
 
-import { colors, font, iconSize, fontWeight, size } from "../ui/theme";
+import { colors, font, iconSize, fontWeight, size } from "../../../ui/theme";
 import { KataDetail } from "./KataDetail";
 import { useState } from "react";
-import { Kata } from "../domain/models/Kata";
+import { Kata } from "../../../domain/models/Kata";
 
 interface Props {
   kata: Kata;

@@ -4,8 +4,8 @@ import { rem } from "polished";
 import { Repo } from "./Repo";
 import { Description } from "./Description";
 import { Warning } from "./Warning";
-import { size } from "../ui/theme";
-import { Kata } from "../domain/models/Kata";
+import { size } from "../../../ui/theme";
+import { Kata } from "../../../domain/models/Kata";
 
 interface Props {
   kata: Kata;

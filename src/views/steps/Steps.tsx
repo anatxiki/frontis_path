@@ -1,11 +1,11 @@
-import LogoBiko from "./material/logo-biko.svg";
-import RedSquare from "./material/red-square.svg";
-import { font, size } from "./ui/theme";
+import LogoBiko from "../../material/logo-biko.svg";
+import RedSquare from "../../material/red-square.svg";
+import { font, size } from "../../ui/theme";
 import styled from "styled-components";
-import { KataStep } from "./KataStep";
-import { katas } from "./data/katas.json";
+import { KataStep } from "./KataStep/KataStep";
+import { katas } from "../../data/katas.json";
 import { rem } from "polished";
-import { Kata } from "./domain/models/Kata";
+import { Kata } from "../../domain/models/Kata";
 
 export function Steps() {
   return (
