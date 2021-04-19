@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     ${reboot};
     body{
         font-family: ${fontFamily};
-        margin: ${rem(grid.gap.desktop)} 0 ${rem(grid.gap.desktop)} ${rem(
+        margin: ${rem(grid.gap.desktop)} ${rem(grid.gap.desktop)} 0 ${rem(
   grid.gap.desktop
 )};
         max-width: ${rem(grid.contentMaxWidth)};

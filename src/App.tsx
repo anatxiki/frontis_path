@@ -4,8 +4,9 @@ import styled from "styled-components";
 import { Steps } from "./Steps";
 import { frontisPassword } from "./superSecretPassword";
 import { Md5 } from "ts-md5/dist/md5";
-import { font, fontWeight, size } from "./ui/theme";
+import { colors, font, fontWeight, size } from "./ui/theme";
 import RedSquare from "./material/red-square.svg";
+import Arrows from "./material/arrow.svg";
 import { rem } from "polished";
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
             </Title>
           </TitleWrapper>
           <p>Introduce la contraseña para acceder:</p>
-          <input
+          <PasswordInput
             type="password"
             aria-label="password"
             value={userInput}
@@ -37,7 +38,13 @@ function App() {
               setUserInput(event.target.value);
             }}
           />
-          <button onClick={checkPassword}>Enviar</button>
+          <SendButton onClick={checkPassword}>
+            <ArrowIcon
+              title="Enviar"
+              src={Arrows}
+              alt="Icono del botón enviar"
+            />
+          </SendButton>
         </AuthPageWrapper>
       ) : (
         <Steps />
@@ -46,6 +53,10 @@ function App() {
   );
 }
 
+const SendButton = styled.button`
+  position: relative;
+`;
+
 const AuthPageWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -53,8 +64,35 @@ const AuthPageWrapper = styled.div`
   flex-direction: column;
 `;
 
+const PasswordInput = styled.input`
+  width: ${rem(600)};
+  height: ${rem(size.medium)};
+
+  margin-top: ${rem(size.mini)};
+
+  border-radius: 5px;
+  border: 3px solid ${colors.lightGrey};
+
+  text-align: center;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const ArrowIcon = styled.img`
+  position: absolute;
+  top: ${rem(-32)};
+  left: ${rem(270)};
+
+  height: ${rem(size.base)};
+
+  cursor: pointer;
+`;
+
 const TitleWrapper = styled.div`
-  margin: ${rem(size.medium)} 0;
+  margin-top: ${rem(size.medium)};
+  margin-bottom: ${rem(size.xlarge)};
   display: flex;
   align-items: center;
 `;
