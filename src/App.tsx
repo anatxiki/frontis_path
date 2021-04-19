@@ -6,8 +6,33 @@ import { KataStep } from "./KataStep";
 import { katas } from "./data/katas.json";
 import { rem } from "polished";
 import { Kata } from "./domain/models/Kata";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/">
+          <Home />
+        </Route>
+        <Route path="/steps">
+          <Steps />
+        </Route>
+      </Switch>
+    </Router>
+  );
+}
+
+function Home() {
+  return (
+    <>
+      <p>Introduce la contraseña para acceder:</p>
+      <input type="password" aria-label="password" />
+    </>
+  );
+}
+
+export function Steps() {
   return (
     <>
       <header>
