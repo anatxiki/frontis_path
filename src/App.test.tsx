@@ -1,7 +1,8 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import App, { Steps } from "./App";
+import App from "./App";
 import userEvent from "@testing-library/user-event";
+import { Steps } from "./Steps";
 
 describe("autenticacion", () => {
   it("muestra la pantalla de autenticación", () => {
