@@ -10,19 +10,19 @@ export function Repo({ repo }: Props) {
   return (
     <>
       {repo === "" ? (
-        <Bold>Esta kata no tiene un repositorio asociado.</Bold>
+        <Info>Esta kata no tiene un repositorio asociado.</Info>
       ) : (
-        <LinkToRepoWrapper>
-          <LinkToRepo href={repo}>GO TO REPO</LinkToRepo>
-        </LinkToRepoWrapper>
+        <LinkWrapper>
+          <Link href={repo}>GO TO REPO</Link>
+        </LinkWrapper>
       )}
     </>
   );
 }
 
-const LinkToRepoWrapper = styled.div``;
+const LinkWrapper = styled.div``;
 
-const LinkToRepo = styled.a`
+const Link = styled.a`
   width: fit-content;
 
   font-weight: ${fontWeight.bold};
@@ -51,7 +51,6 @@ const LinkToRepo = styled.a`
   }
 `;
 
-//DUPLICADO
-const Bold = styled.b`
+const Info = styled.b`
   font-weight: ${fontWeight.bold};
 `;

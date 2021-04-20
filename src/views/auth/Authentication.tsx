@@ -38,10 +38,8 @@ export function Authentication(props: Props) {
         </Title>
       </TitleWrapper>
       <p>Introduce la contraseña para acceder:</p>
-      <PasswordInput
-        type="password"
-        aria-label="password"
-        className={!incorrectPassword ? "correctPassword" : "incorrectPassword"}
+      <Password
+        theme={{ incorrectPassword: incorrectPassword }}
         value={userInput}
         onChange={(event) => {
           setIncorrectPassword(false);
@@ -49,7 +47,7 @@ export function Authentication(props: Props) {
         }}
       />
       <Send onClick={handleSend}>
-        <ArrowIcon title="Enviar" src={Arrows} alt="Icono del botón enviar" />
+        <SendIcon title="Enviar" src={Arrows} alt="Icono del botón enviar" />
       </Send>
       {incorrectPassword && (
         <Warning
@@ -75,31 +73,25 @@ const AuthPageWrapper = styled.div`
   flex-direction: column;
 `;
 
-const PasswordInput = styled.input`
+const Password = styled.input.attrs({
+  "aria-label": "password",
+  type: "password",
+})`
   width: ${rem(600)};
   height: ${rem(size.medium)};
 
   margin-top: ${rem(size.mini)};
 
   border-radius: 5px;
-  border: 3px solid ${colors.lightGrey};
 
   text-align: center;
 
-  &:focus {
-    outline: none;
-  }
-
-  &.incorrectPassword {
-    border: 3px solid ${colors.red};
-  }
-
-  &.correctPassword {
-    border: 3px solid ${colors.lightGrey};
-  }
+  border: 3px solid
+    ${(props) =>
+      props.theme.incorrectPassword ? colors.red : colors.lightGrey};
 `;
 
-const ArrowIcon = styled.img`
+const SendIcon = styled.img`
   position: absolute;
   top: ${rem(-32)};
   left: ${rem(270)};
@@ -122,6 +114,6 @@ const Title = styled.h1`
 `;
 
 const Bold = styled.b`
-  // DUPLICADO x3
+  // DUPLICADO
   font-weight: ${fontWeight.bold};
 `;
