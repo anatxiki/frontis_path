@@ -62,8 +62,10 @@ export function Authentication(props: Props) {
 
 const Send = styled.button`
   position: relative;
-
-  margin-bottom: ${rem(size.medium)};
+  top: ${rem(-32)};
+  left: ${rem(280)};
+  height: ${rem(size.base)};
+  background-color: ${colors.white};
 `;
 
 const AuthPageWrapper = styled.div`
@@ -92,9 +94,7 @@ const Password = styled.input.attrs({
 `;
 
 const SendIcon = styled.img`
-  position: absolute;
-  top: ${rem(-32)};
-  left: ${rem(270)};
+  position: relative;
 
   height: ${rem(size.base)};
 

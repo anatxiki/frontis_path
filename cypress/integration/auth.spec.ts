@@ -4,7 +4,7 @@ describe("Comprueba la pantalla de autenticación", () => {
 
     cy.get("input").type("B1k0");
 
-    cy.findByRole("img", { name: /icono del botón enviar/i }).click();
+    cy.findByRole("button", { name: /enviar/i }).click();
 
     cy.findByText(/Pasos del learning path/i).should("exist");
   });
