@@ -12,15 +12,6 @@ describe("autenticacion", () => {
     expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
   });
 
-  it("al introducir la contraseña correcta dirige a los pasos", () => {
-    render(<App />);
-
-    userEvent.type(screen.getByLabelText(/password/i), "B1k0M4nd4&n0TuB4nd4");
-    userEvent.click(screen.getByRole("button", { name: /enviar/i }));
-
-    expect(screen.getByText(/Pasos del learning path/i)).toBeInTheDocument();
-  });
-
   it("al introducir la contraseña incorrecta, muestra una advertencia", () => {
     render(<App />);
 
