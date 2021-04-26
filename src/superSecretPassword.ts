@@ -1,1 +1,1 @@
-export const frontisPassword = "1e138b653c8b6e7542951db56cd4192b";
+export const frontisPassword = "140d16a5bf6cd8f75c8cf4e686202d2c";
