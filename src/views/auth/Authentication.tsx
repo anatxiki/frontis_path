@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { Md5 } from "ts-md5/dist/md5";
 
 import { frontisPassword } from "../../superSecretPassword";
-import { Md5 } from "ts-md5/dist/md5";
 import { colors, font, fontWeight, size } from "../../ui/theme";
 import RedSquare from "../../material/red-square.svg";
 import Arrows from "../../material/arrow.svg";

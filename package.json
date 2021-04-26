@@ -16,14 +16,18 @@
     "react-scripts": "4.0.3",
     "styled-components": "^5.2.3",
     "ts-md5": "^1.2.7",
-    "typescript": "^4.1.2",
+    "typescript": "^4.2.4",
     "web-vitals": "^1.0.1"
   },
   "resolutions": {
     "styled-components": "^5"
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.9"
+    "@testing-library/cypress": "^7.0.6",
+    "@types/styled-components": "^5.1.9",
+    "@types/testing-library__cypress": "^5.0.8",
+    "cypress": "^7.1.0",
+    "eslint-plugin-cypress": "^2.11.2"
   },
   "scripts": {
     "start": "react-scripts start",
